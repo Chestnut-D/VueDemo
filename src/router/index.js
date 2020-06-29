@@ -1,14 +1,37 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Login from '../views/Login.vue';
+import Home from '../views/Home.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'Login',
+    name: 'login',
     component: Login,
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: Home,
+    children: [
+      {
+        path: 'list',
+        name: 'list',
+        component: () => import(/* webpackChunkName: "list" */ '../views/List.vue'),
+      },
+      {
+        path: 'user',
+        name: 'user',
+        component: () => import(/* webpackChunkName: "user" */ '../views/User.vue'),
+      },
+    ],
+  },
+  {
+    path: '/add',
+    name: 'add',
+    component: () => import(/* webpackChunkName: "add" */ '../views/Add.vue'),
   },
   // {
   //   path: '/about',
@@ -22,6 +45,7 @@ const routes = [
 
 const router = new VueRouter({
   routes,
+  linkActiveClass: 'active',
 });
 
 export default router;
