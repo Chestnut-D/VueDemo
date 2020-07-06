@@ -44,6 +44,7 @@
               this.$router.push('/home/list');
           } else {
               alert('密码错误！');
+              this.password = '';
           }
       },
       reg() {

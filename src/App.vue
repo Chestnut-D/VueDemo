@@ -8,11 +8,7 @@
 *{
   padding: 0;
   margin: 0;
-}
-li{
-    list-style: none;
-}
-a{
-    text-decoration: none;
+  list-style: none;
+  text-decoration: none;
 }
 </style>
