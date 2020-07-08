@@ -1,29 +1,32 @@
 <template>
-<div>
+  <div id="content">
     <ul>
-        <li v-for="(item,index) in pageLists"
-            :key="index">
-        {{item.title}}-{{item.content}}
-    </li>
+      <li v-for="(item,index) in pageLists" :key="index">
+        <p>标题：{{item.title}}</p>
+        <p>内容：{{item.content}}</p>
+        <hr>
+      </li>
     </ul>
-</div>
+  </div>
 </template>
 
 <script>
-import store from '@/store';
+  import store from '@/store';
 
-export default {
+  export default {
     name: 'List',
     store,
     computed: {
-        pageLists() {
-            return store.state.lists;
-        },
+      pageLists() {
+        return store.state.lists;
+      },
     },
-};
+  };
 
 </script>
 
 <style scoped>
-
+li{
+    margin: 10px 15px;
+}
 </style>
