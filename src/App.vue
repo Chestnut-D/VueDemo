@@ -13,8 +13,8 @@
 }
 button{
   outline: none;
-  margin: 20px 20px;
-  width: 85px;
+  margin: 20px 0;
+  width: 105px;
   height: 25px;
   font-size: 15px;
   background-color: #fff;

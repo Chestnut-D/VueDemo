@@ -69,7 +69,7 @@
     text-align: center;
 }
 input{
-  width: 200px;
+  width: 300px;
   height: 30px;
   margin-top: 30px;
 }
