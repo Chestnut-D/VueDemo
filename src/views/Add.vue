@@ -1,10 +1,8 @@
 <template>
 <div>
-    <p>标题</p>
-    <input type="text" v-model="title">
-    <p>内容</p>
-    <input type="text" v-model="content">
-    <div class="btn" @click="add()">添加</div>
+    <div><input type="text" v-model="title" placeholder="标题"></div>
+    <div class="tex"><textarea v-model="content" placeholder="内容"></textarea> </div>
+    <button class="btn" @click="add()">添加</button>
 </div>
 </template>
 
@@ -37,5 +35,15 @@ export default {
 </script>
 
 <style scoped>
+input{
+  width: 200px;
+  height: 30px;
+  margin-top: 30px;
+}
+.tex textarea{
+    margin-top: 30px;
+    width: 350px;
+    height: 200px;
+}
 
 </style>

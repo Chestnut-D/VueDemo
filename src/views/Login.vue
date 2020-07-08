@@ -1,22 +1,17 @@
 <template>
-  <div>
+  <div class="container">
     <form action="" v-if="!isReg">
-      <div>用户名：</div>
-      <input type="text" v-model="name">
-      <div>密码：</div>
-      <input type="password" v-model="password">
+      <div><input type="text" v-model="name" placeholder="用户名："></div>
+      <div><input type="password" v-model="password" placeholder="密码："></div>
       <div>
         <button type="button" @click="login()">登录</button>
         <button type="button" @click="reg()">注册</button>
       </div>
     </form>
     <form action="" v-else>
-      <div>用户名：</div>
-      <input type="text" v-model="name">
-      <div>密码：</div>
-      <input type="password" v-model="password">
-      <div>请再次输入密码：</div>
-      <input type="password" v-model="repeat">
+      <div><input type="text" v-model="name" placeholder="用户名："></div>
+      <div><input type="password" v-model="password" placeholder="密码："></div>
+      <div><input type="password" v-model="password" placeholder="确认密码："></div>
       <div>
         <button type="button" @click="addUser()">确定</button>
         <button type="button" @click="cancel()">取消</button>
@@ -70,5 +65,13 @@
 </script>
 
 <style scoped>
+.container{
+    text-align: center;
+}
+input{
+  width: 200px;
+  height: 30px;
+  margin-top: 30px;
+}
 
 </style>
