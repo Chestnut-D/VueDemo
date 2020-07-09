@@ -24,7 +24,7 @@ export default {
     height: 60px;
     line-height: 60px;
     left: 0;
-    bottom: 0;
+    bottom: -15px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
