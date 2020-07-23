@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件渲染</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.5.17/vue.min.js"></script>
+</head>
+<!--v-bind 绑定属性
+    v-on 绑定事件
+    v-if 条件渲染
+    v-for 列表渲染 -->
+<body>
+<!-- v-if按顺序判断，为true后不再判断 -->
+    <div id="app">
+        <div v-if="count > 0">
+            判断1：count大于0，count的值是：{{count}}
+        </div>
+        <div v-else-if="count < 0 && count > -5">
+            判断2：count小于0大于-5，count的值是：{{count}}
+        </div>
+        <div v-else>
+            判断3：count的值是：{{count}}
+        </div>
+        <div v-show="count == -1">show:{{count}}</div>
+        {{msg}} <br>
+    </div>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello vue!',
+                count:0
+            },
+        })
+    </script>
+
+</body>
+
+</html>

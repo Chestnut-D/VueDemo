@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性和侦听器</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.5.17/vue.min.js"></script>
+    <!-- 
+    计算属性：computed
+    侦听器：watch
+    使用场景：
+ -->
+</head>
+
+<body>
+    <div id="app">
+        {{msg}}
+    <p>
+        {{msg1}}
+    </p>
+    </div>
+    
+    <script>
+        var arr = 'new test'
+
+        var app = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello Vue!',
+                another: 'another hello vue!'
+            },
+            //是观察的动作，监听当前指定变量
+            watch:{
+                msg:function (newval, oldval){
+                    console.log('newval is:' + newval)
+                    console.log('oldval is:' + oldval)
+                }
+            },
+            //是计算值，监听当前function里的所有
+            computed:{
+                msg1: function(){
+                    return 'computed:' + this.msg + ',' + this.another + arr
+                }
+            }
+        })
+    </script>
+    <!-- 
+        总结：
+            计算属性：computed（很多变量，但一定在vue的池里面）
+            侦听器：watch（1个变量）
+            使用场景：watch 异步场景，computed 数据联动
+     -->
+</body>
+
+</html>

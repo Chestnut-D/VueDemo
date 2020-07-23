@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表渲染</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.5.17/vue.min.js"></script>
+</head>
+<!--v-bind 绑定属性
+    v-on 绑定事件
+    v-if 条件渲染
+    v-for 列表渲染 -->
+<body>
+    <div id="app">
+        {{msg}}
+        <div v-for="item in list">{{item}}</div>
+        <div v-for="item in list1">{{item.name}}</div>
+        <br>
+
+        <div v-for="item in list1">
+            <div v-if="item.age > 19">{{item.name}}</div>
+            <div v-else>{{item.name +':'+ item.age}}</div>
+        </div>
+        <br>
+
+        <!-- style 和 class 的绑定，v-bind：可以不写，指令缩写
+            {'class属性':判断（true/false）}
+        -->
+        <div v-for="item in list1">
+            <!-- 李华19岁，进入判断，输出一个display：none;是不可见的，所以只展示李明 -->
+            <div v-show="item.age > 19" 
+                :style="styleMsg"
+                :class="{'active':true}">
+                <!-- :class="['active','add','more',{'another':item.age < 30}]" -->
+                {{item.name}}
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello vue!',
+                styleMsg:{
+                    color:'red',
+                    textShadow:'0 0 5px #232323'
+                },
+                list:[1,2,3,4,5],
+                list1:[{
+                    name:'李华',
+                    age:19,
+                },{
+                    name:'李明',
+                    age:20  
+                }]
+            },
+        })
+    </script>
+    <!-- 
+        模板语法：默认语法的功能就是前端渲染，前端渲染即使把数据填充到html标签中。数据（来自服务器） + 模板（html标签） =  前端渲染（产物是静态html内容）。
+        计算属性和侦听器：watch 1个变量&对象，computed 监控自己定义的变量，该变量不在data里面声明，直接在computed里面定义。
+        常用指令（列表，条件，class与样式绑定）：v-for，v-if，v-bind:style="",v-bind:class=""
+     -->
+
+</body>
+
+</html>

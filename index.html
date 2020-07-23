@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绑定 缩写</title>
+    <style>
+        .bg {
+            color: red;
+        }
+    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.5.17/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="bg" v-bind:id="bg1">
+            hello world!!
+            {{msg}}
+        </div>
+        <div class="bg">
+            hello world!!
+            {{msg}}
+        </div>
+
+        {{template}}
+
+        <!-- v-html 读取原始内容 -->
+        <div v-html="template"></div>
+        <a href="http://www.baidu.com">百度</a>
+        <!-- v-bind 给页面元素绑定属性 -->
+        <a v-bind:href="url">百度</a> <br>
+        
+
+        {{count}}
+        {{(count + 1)*10}} <br>
+
+        <!-- 指令缩写：v-on: 可以 @ 符号代替，v-bind：可以 ：代替 -->
+        <button type="button" v-on:click='submit()'>count++</button><br>
+        <button type="button" @click='submit()'>count++</button><br>
+        <a :href="url1">慕课</a> <br>
+    </div>
+
+    <script>
+        // new Vue({
+        //     el: '.bg',
+        //     data: {
+        //         msg: 'hello vue!!' //同样的div，优先绑定第一个
+        //     }
+        // })
+        new Vue({
+            el: '#app',//css的绑定方式
+            data: {
+                bg1: 'app-bind',//属性bg1对应的是app-bind,此时id设置为app-bind
+                msg: 'hello vue!!',
+                count: 0,
+                template: '<div>hello template</div>',
+                url: 'http://www.baidu.com',
+                url1: 'http://www.imooc.com'
+            },
+            methods: {
+                submit: function () {
+                    this.count++;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
